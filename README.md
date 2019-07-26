@@ -29,9 +29,24 @@ Implement an User Authentication System in order to access the jokes from the Jo
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 1. What is the purpose of using _sessions_?
+
+   Sessions allow us to persist user data through many requests without authenticating every time. They also let the server store data about the user that we can use to identify the user without sending things like username or id with the request.
+
 1. What does bcrypt do to help us store passwords in a secure manner.
+
+   Brypt stores out password in a hash. It will always result in the same hash given the same parameters and input. This allows brypt to assist with authenticating users as well since it can match a password to the hash it created.
+
 1. What does bcrypt do to slow down attackers?
+
+   Bcrypt slows down attackers by hashing the password many times over. Attacks will now not only need the hash and the algorithm used to create it, but also the amount of times it was hashed.
+
 1. What are the three parts of the JSON Web Token?
+
+   1. The header: contains the type of token (JWT) and the algorithm used to create it.
+
+   2. The payload: contains the information we would like to store on the token. Usually this will be the user's data.
+
+   3. The signature: The header and payload encoded together and then signed with a secret.
 
 ## Project Set Up
 
@@ -48,9 +63,9 @@ Follow these steps for completing your project:
 
 - [ ] `cd` into the root of the project and run `yarn` to install dependencies.
 - [ ] Once you have your `node_modules` go ahead and run `yarn server` or `npm run server` to start your node server.
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo).
+- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo).
 - [ ] Add your Project Manager as a Reviewer on the Pull-request
-- [ ] PM then will count the HW as done by  merging the branch back into master.
+- [ ] PM then will count the HW as done by merging the branch back into master.
 
 Helpful Tip on Testing this Project:
 
