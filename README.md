@@ -73,7 +73,7 @@ Helpful Tip on Testing this Project:
 
 ## Minimum Viable Product
 
-- [ ] Implement the `register` function inside `/config/routes.js`.
+- [x] Implement the `register` function inside `/config/routes.js`.
 - [ ] Implement the `login` function inside `/config/routes.js`.
 - [ ] Use JSON Web Tokens for authentication.
 - [ ] Add at least 2 tests for the API endpoints.
