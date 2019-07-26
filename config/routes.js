@@ -102,10 +102,11 @@ function generateToken(user) {
 async function uniqueNameCheck(req, res, next) {
 
   if (req.body.username && req.body.password) {
+
     const { username } = req.body
+
     try {
       const user = await Users.getUserByName(username)
-      console.log(user)
       user !== undefined
         ? res.status(400).json({
           message: "A user with this name already exists."
@@ -116,6 +117,7 @@ async function uniqueNameCheck(req, res, next) {
         message: "There was an error."
       })
     }
+
   } else {
     res.status(400).json({
       message: "Please include a username and password to register."
