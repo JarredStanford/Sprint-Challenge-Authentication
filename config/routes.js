@@ -1,6 +1,9 @@
 const axios = require('axios');
+const bcrypt = require('bcryptjs')
 
 const { authenticate } = require('../auth/authenticate');
+
+const Users = require('./route-helpers.js')
 
 module.exports = server => {
   server.post('/api/register', register);
@@ -10,6 +13,23 @@ module.exports = server => {
 
 function register(req, res) {
   // implement user registration
+  const user = {
+    username: req.body.username,
+    password: req.body.password
+  }
+
+  const hash = bcrypt.hashSync(user.password, 14)
+  user.password = hash
+
+  Users.addUser(user)
+    .then(saved => {
+      res.status(201).json(saved)
+    })
+    .catch(err => {
+      res.status(500).json({
+        message: "There was a registration error."
+      })
+    })
 }
 
 function login(req, res) {
